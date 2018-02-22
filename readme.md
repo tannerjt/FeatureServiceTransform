@@ -4,6 +4,8 @@ Perform transformations on incoming streams of data from a feature service.
 
 ## Example
 
+Writes output geojson file with two new standard fields `street` and `city`.
+
 ```javascript
 const fs = require('fs');
 const { FeatureServiceTransform } = require('../src/index.js');
