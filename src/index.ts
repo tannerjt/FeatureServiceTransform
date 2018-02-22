@@ -54,14 +54,10 @@ export class FeatureServiceTransform {
 
   _transform(attributes) {
     let transformed = {};
-    const originalKeys = Object.keys(attributes);
-    const desiredKeys = Object.keys(this.transformations);
+    const newKey = Object.keys(this.transformations);
 
-    for (var i = 0; i < desiredKeys.length; i++) {
-      if (originalKeys.indexOf(desiredKeys[i]) !== -1) {
-        transformed[this.transformations[desiredKeys[i]]['name']] =
-          this.transformations[desiredKeys[i]].transform(attributes);
-      }
+    for (var i = 0; i < newKey.length; i++) {
+      transformed[newKey[i]] = this.transformations[newKey[i]].transform(attributes);
     }
     return transformed;
   }
