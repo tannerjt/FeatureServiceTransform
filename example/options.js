@@ -1,8 +1,7 @@
 const options = {
   url: "http://lcmaps.lanecounty.org/arcgis/rest/services/LaneCountyMaps/AddressParcel/MapServer/0/query",
   transformations: {
-    "street_name": {
-      name: "street",
+    "street": {
       transform: (attributes) => {
         let number = attributes['house_nbr'] || '';
         let direction = attributes['pre_direction_code'] || '';
@@ -11,8 +10,7 @@ const options = {
         return `${number}${direction} ${street_name} ${street_type}`.trim();
       }
     },
-    "city_name": {
-      name: "city",
+    "city": {
       transform: (attributes) => {
         return `${attributes['city_name'] || ''}`.trim();
       }
